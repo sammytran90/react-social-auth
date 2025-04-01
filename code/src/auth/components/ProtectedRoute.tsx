@@ -1,21 +1,14 @@
-'use client';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import { useAuth } from '../AuthContext';
+import { redirect } from 'next/navigation';
+import { ReactNode } from 'react';
+import { auth } from '../config';
 
-export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const { user, loading } = useAuth();
-  const router = useRouter();
+export const ProtectedRoute = async ({ children }: { children: ReactNode }) => {
+  const user = auth.currentUser;
 
-  useEffect(() => {
-    if (!loading && !user) {
-      router.push('/signin');
-    }
-  }, [user, loading, router]);
-
-  if (loading) {
-    return <div>Loading...</div>;
+  if (!user) {
+    console.log('User is not authenticated, redirecting to signin');
+    redirect('/signin');
   }
 
-  return user ? <>{children}</> : null;
+  return <>{children}</>;
 };
