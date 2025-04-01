@@ -1,6 +1,6 @@
 'use client';
 import { signOut as firebaseSignOut } from 'firebase/auth';
-import { auth } from './config';
+import { auth } from '../config';
 
 export const signOut = async () => {
   try {

@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
-import { ProtectedRoute } from "@/auth/ProtectedRoute";
+import { ProtectedRoute } from "@/auth/components/ProtectedRoute";
 import Link from "next/link";
-import SignOutButton from '@/auth/SignOutButton';
+import SignOutButton from '@/auth/components/SignOutButton';
 
 export default function ProtectedLayout({
   children,
