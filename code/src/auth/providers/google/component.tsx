@@ -1,6 +1,17 @@
 "use client";
-import { signInWithGoogle } from "./google";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import Image from "next/image";
+import { auth } from "../../config";
+
+export const signInWithGoogle = async () => {
+  const provider = new GoogleAuthProvider();
+  try {
+    await signInWithPopup(auth, provider);
+  } catch (error) {
+    console.error("Error signing in with Google:", error);
+    throw error;
+  }
+};
 export default function GoogleSignInButton() {
   return (
     <button

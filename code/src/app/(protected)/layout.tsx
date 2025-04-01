@@ -1,15 +1,14 @@
 'use client';
 import React from 'react';
-import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
-import { useAuth } from "@/components/auth/AuthContext";
+import { ProtectedRoute } from "@/auth/ProtectedRoute";
 import Link from "next/link";
+import SignOutButton from '@/auth/SignOutButton';
 
 export default function ProtectedLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { signOut } = useAuth();
 
   return (
     <ProtectedRoute>
@@ -20,12 +19,7 @@ export default function ProtectedLayout({
             <Link href="/" className="text-xl font-bold">
               Your App
             </Link>
-            <button
-              onClick={() => signOut()}
-              className="px-4 py-2 bg-gray-800 rounded-md hover:bg-gray-700 transition-colors"
-            >
-              Sign Out
-            </button>
+            <SignOutButton />
           </div>
         </nav>
 

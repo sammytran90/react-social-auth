@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import GoogleSignInButton from "@/components/auth/providers/google/component";
+import GoogleSignInButton from "@/auth/providers/google/component";
 
 export default function SignIn() {
   return (
