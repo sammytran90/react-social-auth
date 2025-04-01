@@ -3,7 +3,7 @@ import {
   signInWithPopup, 
   signOut as firebaseSignOut 
 } from 'firebase/auth';
-import { auth } from '../firebase/config';
+import { auth } from '../../firebase/config';
 
 export const signInWithGoogle = async () => {
   const provider = new GoogleAuthProvider();

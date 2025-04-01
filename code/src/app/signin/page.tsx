@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import GoogleSignInButton from "@/components/auth/providers/google/component";
 
 export default function SignIn() {
   return (
@@ -17,10 +18,8 @@ export default function SignIn() {
 
       <h1 className="text-2xl font-bold text-center mb-8">Sign In</h1>
 
-
       {/* Sign In Container */}
       <div className="w-full max-w-md p-8 rounded-lg bg-[#1a1a1a]">
-
         {/* Email Form */}
         <form className="space-y-6">
           <div>
@@ -49,18 +48,12 @@ export default function SignIn() {
 
         {/* Social Login Buttons */}
         <div className="space-y-4 mt-4">
-          <button className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-700 rounded-md hover:bg-gray-800 transition-colors">
-            <Image
-              src="/google-icon.png"
-              alt="Google"
-              width={20}
-              height={20}
-              className="w-5 h-5"
-            />
-            Continue with Google
-          </button>
+          <GoogleSignInButton />
 
-          <button className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-700 rounded-md hover:bg-gray-800 transition-colors">
+          <button
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-700 rounded-md transition-colors text-gray-500"
+            disabled
+          >
             <Image
               src="/github-icon.png"
               alt="GitHub"
@@ -69,6 +62,20 @@ export default function SignIn() {
               className="w-5 h-5"
             />
             Continue with GitHub
+          </button>
+
+          <button
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-700 rounded-md transition-colors text-gray-500"
+            disabled
+          >
+            <Image
+              src="/discord-icon.png"
+              alt="Discord"
+              width={20}
+              height={20}
+              className="w-5 h-5"
+            />
+            Continue with Discord
           </button>
         </div>
 
