@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import GoogleSignInButton from "@/auth/components/GoogleSigninButton";
+import GithubSignInButton from "@/auth/components/GithubSigninButton";
 
 export default function SignIn() {
   return (
@@ -50,19 +51,7 @@ export default function SignIn() {
         <div className="space-y-4 mt-4">
           <GoogleSignInButton />
 
-          <button
-            className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-700 rounded-md transition-colors text-gray-500"
-            disabled
-          >
-            <Image
-              src="/github-icon.png"
-              alt="GitHub"
-              width={20}
-              height={20}
-              className="w-5 h-5"
-            />
-            Continue with GitHub
-          </button>
+          <GithubSignInButton />
 
           <button
             className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-700 rounded-md transition-colors text-gray-500"
