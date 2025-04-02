@@ -17,17 +17,26 @@ export default function NavBar() {
             Home
           </Link>
         </li>
+
+        {user && (
+          <li>
+            <Link className="text-white hover:text-gray-400" href="/profile">
+              Profile
+            </Link>
+          </li>
+        )}
+
         {user ? (
-          <>
-            <li>
-              <Link className="text-white hover:text-gray-400" href="/profile">
-                Profile
-              </Link>
-            </li>
-            <li>
-              <SignOutButton />
-            </li>
-          </>
+          <li className="relative group">
+            <button className="text-white hover:text-gray-400">
+              {user.displayName || "User"}
+            </button>
+            <ul className="absolute hidden group-hover:block bg-gray-800 text-white mt-2 rounded-md shadow-lg">
+              <li>
+                <SignOutButton />
+              </li>
+            </ul>
+          </li>
         ) : (
           <>
             <li>
