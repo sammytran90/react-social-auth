@@ -55,9 +55,7 @@ If you try to sign in with GitHub using an email that's already associated with 
 The application includes a middleware that handles authentication and protects routes:
 
 1. Protected Routes:
-   - `/authenticated-page`
    - `/profile`
-   - `/dashboard`
    - These routes require authentication to access
    - Unauthenticated users will be redirected to `/login`
 
@@ -65,7 +63,7 @@ The application includes a middleware that handles authentication and protects r
    - `/login`
    - `/signup`
    - These routes are only accessible to unauthenticated users
-   - Authenticated users will be redirected to `/authenticated-page`
+   - Authenticated users will be redirected to `/profile`
 
 3. Session Management:
    - The middleware uses a session cookie to track authentication state
