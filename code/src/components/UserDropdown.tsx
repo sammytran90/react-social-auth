@@ -1,12 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAuth } from "../auth/AuthContext";
 import SignOutButton from "@/auth/components/SignOutButton";
 
 export default function UserDropdown() {
   const { user } = useAuth();
   const [open, setOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <li className="relative group">
+    <div className="relative group" ref={dropdownRef}>
       <button
         className="text-white hover:text-gray-400"
         onClick={() => setOpen(!open)}
@@ -22,6 +37,6 @@ export default function UserDropdown() {
           <SignOutButton />
         </li>
       </ul>
-    </li>
+    </div>
   );
 }
