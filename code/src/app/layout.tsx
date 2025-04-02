@@ -1,7 +1,8 @@
 import "./globals.css";
 import { AuthProvider } from "../auth/AuthContext";
 import NavBar from "@/components/NavBar";
-
+import { AppProvider } from "@/context/AppContext";
+import PushNotification from "@/context/PushNotification";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -11,8 +12,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AuthProvider>
-          <NavBar />
-          <div className="container-fluid">{children}</div>
+          <AppProvider>
+            <NavBar />
+            <div className="container-fluid">{children}</div>
+            <PushNotification />
+          </AppProvider>
         </AuthProvider>
       </body>
     </html>

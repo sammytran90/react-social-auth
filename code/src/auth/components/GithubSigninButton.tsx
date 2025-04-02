@@ -1,13 +1,12 @@
 "use client";
 import Image from "next/image";
-import { loginWithProvider } from "../service";
-import { useRouter } from "next/navigation";
+import { useLoginWithProvider } from "../service";
 
 export default function GithubSignInButton() {
-  const router = useRouter();
+  const loginWithProvider = useLoginWithProvider("github");
   return (
     <button
-      onClick={() => loginWithProvider("github", router)}
+      onClick={loginWithProvider}
       className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-700 rounded-md hover:bg-gray-800 transition-colors"
     >
       <Image
