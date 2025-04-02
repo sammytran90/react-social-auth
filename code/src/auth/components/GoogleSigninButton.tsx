@@ -8,7 +8,6 @@ export const signInWithGoogle = async (router: any) => {
   const provider = new GoogleAuthProvider();
   try {
     await signInWithPopup(auth, provider);
-    router.push("/profile");
   } catch (error) {
     console.error("Error signing in with Google:", error);
     throw error;

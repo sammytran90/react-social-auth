@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 export const signOut = async (router: any) => {
   try {
     await firebaseSignOut(auth);
-    router.push("/signin");
+    router.push("/");
   } catch (error) {
     console.error("Error signing out:", error);
     throw error;
