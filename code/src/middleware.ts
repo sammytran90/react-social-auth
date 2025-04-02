@@ -3,9 +3,7 @@ import type { NextRequest } from 'next/server'
 
 // Paths that require authentication
 const protectedPaths = [
-  '/details',
   '/profile',
-  '/dashboard'
 ]
 
 // Paths that should be accessible only for non-authenticated users
@@ -25,7 +23,7 @@ export function middleware(request: NextRequest) {
 
   // Redirect authenticated users away from auth pages
   if (isAuthPath && token) {
-    return NextResponse.redirect(new URL('/details', request.url))
+    return NextResponse.redirect(new URL('/profile', request.url))
   }
 
   // Redirect unauthenticated users to signin
