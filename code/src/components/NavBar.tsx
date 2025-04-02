@@ -18,10 +18,16 @@ export default function NavBar() {
           </Link>
         </li>
 
-        {user && (
+        {user ? (
           <li>
             <Link className="text-white hover:text-gray-400" href="/profile">
               Profile
+            </Link>
+          </li>
+        ) : (
+          <li>
+            <Link className="text-white hover:text-gray-400" href="/signin">
+              Sign In
             </Link>
           </li>
         )}
