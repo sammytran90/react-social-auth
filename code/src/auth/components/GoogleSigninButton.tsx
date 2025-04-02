@@ -1,24 +1,13 @@
 "use client";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import Image from "next/image";
+import { loginWithProvider } from "../service";
 import { useRouter } from "next/navigation";
-import { auth } from "../config";
 
-export const signInWithGoogle = async (router: any) => {
-  const provider = new GoogleAuthProvider();
-  try {
-    await signInWithPopup(auth, provider);
-  } catch (error) {
-    console.error("Error signing in with Google:", error);
-    throw error;
-  }
-};
 export default function GoogleSignInButton() {
   const router = useRouter();
-
   return (
     <button
-      onClick={() => signInWithGoogle(router)}
+      onClick={() => loginWithProvider("google", router)}
       className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-700 rounded-md hover:bg-gray-800 transition-colors"
     >
       <Image
