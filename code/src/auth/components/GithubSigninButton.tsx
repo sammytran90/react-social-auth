@@ -8,7 +8,7 @@ export const signInWithGithub = async (router: any) => {
   const provider = new GithubAuthProvider();
   try {
     await signInWithPopup(auth, provider);
-    router.push("/authenticated-page");
+    router.push("/details");
   } catch (error: any) {
     if (error.code === 'auth/account-exists-with-different-credential') {
       // Get the email from the error

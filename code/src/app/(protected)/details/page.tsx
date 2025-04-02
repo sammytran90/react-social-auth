@@ -1,6 +1,6 @@
 'use client';
-import { useAuth } from "../../auth/AuthContext";
-import styles from "../page.module.css";
+import { useAuth } from "../../../auth/AuthContext";
+import styles from "./page.module.css";
 
 export default function AuthenticatedPage() {
   const { user } = useAuth();
